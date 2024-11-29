@@ -1,0 +1,19 @@
+{
+	"name": "new-tab",
+	"version": "1.0.0",
+	"description": "A chrome extension that replaces the new tab page.",
+	"scripts": {
+		"build": "node build.js",
+		"build:watch": "node build.js --watch",
+		"postinstall": "npm run build"
+	},
+	"type": "module",
+	"author": "ArazEstPrit",
+	"license": "ISC",
+	"dependencies": {
+		"@types/chrome": "^0.0.269",
+		"esbuild": "^0.23.0",
+		"esbuild-sass-plugin": "^3.3.1",
+		"typescript": "^5.5.4"
+	}
+}

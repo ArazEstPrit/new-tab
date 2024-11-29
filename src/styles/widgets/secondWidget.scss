@@ -1,0 +1,44 @@
+#second {
+	display: grid;
+
+	grid-template-columns: 100%;
+
+	min-width: 100px;
+
+	flex-grow: 1;
+
+	padding: 23px;
+
+	place-content: center;
+
+	#second-bar {
+		background-color: var(--dark);
+
+		height: 2px;
+		width: 100%;
+
+		border-radius: 2px;
+
+		grid-area: 1/1;
+		position: relative;
+	}
+
+	#second-point {
+		background-color: var(--accent);
+		height: 18px;
+		width: 18px;
+
+		--seconds: 0;
+
+		z-index: 2;
+
+		transition: 0.1s linear;
+
+		left: calc(-9px + (var(--seconds) / 60) * 100%);
+
+		position: relative;
+
+		border-radius: 50%;
+		grid-area: 1/1;
+	}
+}

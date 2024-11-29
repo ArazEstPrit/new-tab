@@ -1,0 +1,28 @@
+#weather {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+
+	gap: 10px;
+	padding-left: 30px;
+
+	cursor: pointer;
+
+	* {
+		pointer-events: none;
+		user-select: none;
+	}
+
+	&:hover * {
+		opacity: 0.5;
+	}
+
+	&.clicked * {
+		opacity: 1 !important;
+	}
+
+	#weather-text {
+		margin: 0;
+	}
+}

@@ -1,0 +1,7 @@
+@mixin border($color) {
+	border: solid var(--border-width) $color;
+}
+
+@mixin shadow($opacity: 30%) {
+	box-shadow: 0 4px 10px 0 rgb(from var(--dark) r g b / $opacity);
+}

@@ -1,0 +1,11 @@
+{
+	"manifest_version": 3,
+	"name": "new-tab",
+	"version": "1.0.0",
+	"description": "A chrome extension that replaces the new tab page.",
+	"author": "ArazEstPrit",
+	"chrome_url_overrides": {
+		"newtab": "index.html"
+	},
+	"permissions": ["storage", "bookmarks", "favicon"]
+}

@@ -1,0 +1,184 @@
+@use "./widgets/weatherWidget.scss";
+@use "./widgets/secondWidget.scss";
+@use "./widgets/timeWidget.scss";
+@use "./widgets/bookmarkWidget.scss";
+@use "./widgets/horizontalClockWidget.scss";
+@use "./mixins.scss";
+
+body {
+	font-family: "CaskaydiaMono Nerd Font", sans-serif;
+	font-style: normal;
+	font-size: 16px;
+	color: var(--text);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+* {
+	transition: all ease-in-out;
+	transition-duration: 300ms;
+
+	&:hover {
+		transition-duration: 200ms;
+	}
+
+	&:active {
+		transition-duration: 30ms;
+	}
+}
+
+:root {
+	--dark: rgb(75, 68, 83);
+	--light: rgb(245 239 251 / 0.5);
+
+	--main: rgb(132 94 194);
+	--main-faint: rgb(155 137 179);
+	--accent: rgb(255 128 102);
+	--accent-faint: rgb(199, 110, 92);
+
+	--text: rgb(22 20 23);
+	--white: rgb(246 245 245);
+
+	--border-color: var(--accent);
+	--border-width: 1px;
+}
+
+.centered {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: nowrap;
+}
+
+body {
+	background-color: var(--main-faint);
+
+	margin: 0;
+
+	min-width: 758px;
+
+	overflow: hidden;
+
+	&.debug {
+		background-color: var(--accent-faint);
+	}
+
+	&:not(.debug) .debug {
+		display: none;
+	}
+}
+
+.container {
+	@extend .centered;
+
+	@include mixins.shadow();
+	@include mixins.border(var(--dark));
+
+	background-color: var(--light);
+
+	&.big {
+		border-radius: 20px;
+		padding: 50px 80px;
+	}
+
+	&.small {
+		border-radius: 15px;
+		padding: 12px 40px;
+		height: 50px;
+		font-size: 24px;
+		line-height: 1em;
+	}
+}
+
+.widgets {
+	float: right;
+
+	display: flex;
+	flex-direction: row-reverse;
+	align-items: flex-end;
+	flex-wrap: wrap;
+
+	width: 600px;
+	gap: 15px;
+
+	margin: 20px;
+
+	.refresh {
+		&:hover {
+			* {
+				opacity: 0.5;
+			}
+		}
+
+		&.clicked {
+			* {
+				opacity: 1 !important;
+			}
+		}
+	}
+}
+
+$size: 3px;
+
+.point {
+	position: absolute;
+	background-color: red;
+	border-radius: 50%;
+
+	pointer-events: none;
+
+	z-index: 123;
+
+	width: $size;
+	height: $size;
+
+	transform: translate(-50%, -50%);
+	transition: none;
+}
+
+#line {
+	position: absolute;
+	background-color: green;
+	z-index: 123;
+
+	pointer-events: none;
+
+	width: $size;
+
+	transform: translate(calc($size / -2), 0);
+
+	transform-origin: 0 0;
+
+	transition: none;
+}
+
+.debug-circle {
+	position: absolute;
+
+	--w: 30px;
+
+	--c: var(--accent);
+
+	right: calc(var(--w) / -2);
+	top: calc(var(--w) / -2);
+
+	width: var(--w);
+	height: var(--w);
+
+	border-radius: 50%;
+
+	background-color: rgb(from var(--c) r g b / 0);
+
+	.debug & {
+		--c: var(--main-faint);
+	}
+
+	&:hover {
+		background-color: var(--c);
+
+		transform: scale(2);
+	}
+}
