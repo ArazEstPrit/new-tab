@@ -20,4 +20,8 @@ function updateSecondPoint() {
 		"--seconds",
 		(date.getSeconds() + date.getMilliseconds() / 1000).toString()
 	);
+
+	if (date.getMilliseconds() < 100) {
+		document.dispatchEvent(new Event("newSecond"));
+	}
 }

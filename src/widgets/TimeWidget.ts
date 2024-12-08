@@ -36,3 +36,7 @@ document.addEventListener("debugDateToggle", () => {
 document.addEventListener("debugDate", () => {
 	updateTime();
 });
+
+document.addEventListener("newSecond", () => {
+	updateTime();
+});
