@@ -21,11 +21,16 @@ function updateDate() {
 }
 
 const units = [1000, 60, 60];
+const padding = [2, 2, 3];
 
 const formatDuration = (ms: number): string =>
 	units
 		.reduce((acc, curr, i) => [...acc, Math.round(acc[i] / curr)], [ms])
 		.slice(1)
-		.map((a, i) => (units[i + 1] ? a % units[i + 1] : a))
+		.map((a, i) =>
+			(units[i + 1] ? a % units[i + 1] : a)
+				.toFixed(0)
+				.padStart(padding[i], "0")
+		)
 		.reverse()
 		.join(":");
