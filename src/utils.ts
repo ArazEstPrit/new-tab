@@ -106,7 +106,7 @@ export function debugDateSlider() {
 		},
 	}) as HTMLInputElement;
 
-	let intervalId: number | null = null;
+	let intervalId = null;
 
 	const loopButton = h(
 		"button",

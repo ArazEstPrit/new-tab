@@ -1,5 +1,6 @@
 import { $, debugDateSlider } from "./utils.js";
 import BookmarkWidget from "./widgets/BookmarkWidget.js";
+import CountdownWidget from "./widgets/CountdownWidget.js";
 import DateWidget from "./widgets/DateWidget.js";
 import HorizontalClockWidget from "./widgets/HorizontalClockWidget.js";
 import SecondWidget from "./widgets/SecondWidget.js";
@@ -12,6 +13,7 @@ DateWidget.init();
 SecondWidget.init();
 WeatherWidget.init();
 HorizontalClockWidget.init();
+CountdownWidget.init();
 
 debugDateSlider();
 
